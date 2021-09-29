@@ -9,7 +9,7 @@ const Node=({item, hasChildren , level, onToggle,deleteNode,insertNode})=>{
             {item.title!=='RootFolder' &&  <>
             <i className="collapse far fa-trash-alt" 
             onClick={()=>deleteNode(item)}></i>
-            <i className="collapse fas fa-plus" onClick={()=>insertNode(item,{title:`${item.title}child`,id:`${item.id}n`})}></i>
+            <i className="collapse fas fa-plus" onClick={()=>insertNode(item,{title:`${item.title}child${item.items?item.items.length:0}`,id:`${item.id}n${item.items?item.items.length:0}`})}></i>
             </>}
            
 

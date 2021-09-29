@@ -11,11 +11,8 @@ function App() {
     let newData = [];
     const rootNode = data[0]
     deleteNodeFromTree(rootNode, node.id)
-    newData[0] = rootNode;
-
+    newData.push(rootNode)
     setData(newData)
-
-
   }
   const deleteNodeFromTree = (node, nodeId) => {
     if (node.items != null) {
@@ -30,41 +27,38 @@ function App() {
       }
     }
   }
-  const insertNode = (node,newNode) => {
+  const insertNode = (node, newNode) => {
     let newData = [];
     const rootNode = data[0]
-    insertNodeIntoTree(rootNode, node.id,newNode)
-    newData[0] = rootNode;
-
-    setData(newData)
-
-
+    insertNodeIntoTree(rootNode, node.id, newNode);
+    newData.push(rootNode);
+    setData(newData);
   }
 
-  const insertNodeIntoTree=(node, nodeId, newNode) =>{
+  const insertNodeIntoTree = (node, nodeId, newNode) => {
     if (node.id == nodeId) {
-       
-        if (newNode) {
-            newNode.items = [];
-            if(!node.items)node.items=[];
-            node.items.push(newNode);
-        }
+
+      if (newNode) {
+        newNode.items = [];
+        if (!node.items) node.items = [];
+        node.items.push(newNode);
+      }
 
     } else if (node.items != null) {
-        for (let i = 0; i < node.items.length; i++) {
-            insertNodeIntoTree(node.items[i], nodeId, newNode);
-        }
+      for (let i = 0; i < node.items.length; i++) {
+        insertNodeIntoTree(node.items[i], nodeId, newNode);
+      }
 
     }
 
-}
+  }
 
 
 
 
   return (
     <div className="App">
-      <Main data={data} deleteNode={deleteNode} insertNode={insertNode}/>
+      <Main data={data} deleteNode={deleteNode} insertNode={insertNode} />
 
     </div>
   );

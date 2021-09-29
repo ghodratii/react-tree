@@ -43,9 +43,6 @@ function App() {
 
   const insertNodeIntoTree=(node, nodeId, newNode) =>{
     if (node.id == nodeId) {
-        // get new id
-      	let n = 0;
-        /** Your logic to generate new Id **/
        
         if (newNode) {
             newNode.items = [];
